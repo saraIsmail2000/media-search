@@ -1,0 +1,129 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/save-click": {
+            "post": {
+                "description": "Report a click from the search results",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "operationId": "report-click",
+                "parameters": [
+                    {
+                        "description": "Click Event",
+                        "name": "event",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SearchClick"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Click event reported successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/save-search": {
+            "post": {
+                "description": "Report that a search has been done",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "operationId": "save-search",
+                "parameters": [
+                    {
+                        "description": "Search Event",
+                        "name": "event",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SearchEvent"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search event reported successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "get": {
+                "description": "Search through movies and books",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "operationId": "search",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Search Query",
+                        "name": "search_query",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Click event reported successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.SearchClick": {
+            "type": "object",
+            "properties": {
+                "result_id": {
+                    "type": "integer"
+                },
+                "result_position": {
+                    "type": "integer"
+                },
+                "result_type": {
+                    "type": "string"
+                },
+                "search_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.SearchEvent": {
+            "type": "object",
+            "properties": {
+                "search_id": {
+                    "type": "string"
+                },
+                "search_query": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

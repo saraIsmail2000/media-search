@@ -1,0 +1,82 @@
+definitions:
+  models.SearchClick:
+    properties:
+      result_id:
+        type: integer
+      result_position:
+        type: integer
+      result_type:
+        type: string
+      search_id:
+        type: string
+    type: object
+  models.SearchEvent:
+    properties:
+      search_id:
+        type: string
+      search_query:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /save-click:
+    post:
+      consumes:
+      - application/json
+      description: Report a click from the search results
+      operationId: report-click
+      parameters:
+      - description: Click Event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/models.SearchClick'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Click event reported successfully
+          schema:
+            type: string
+  /save-search:
+    post:
+      consumes:
+      - application/json
+      description: Report that a search has been done
+      operationId: save-search
+      parameters:
+      - description: Search Event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/models.SearchEvent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Search event reported successfully
+          schema:
+            type: string
+  /search:
+    get:
+      consumes:
+      - application/json
+      description: Search through movies and books
+      operationId: search
+      parameters:
+      - description: Search Query
+        in: query
+        name: search_query
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Click event reported successfully
+          schema:
+            type: string
+swagger: "2.0"

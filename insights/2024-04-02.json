@@ -1,0 +1,23 @@
+{
+    "top_clicked_items": [
+        {
+            "result_id": 36,
+            "result_type": "book",
+            "clicks": 2
+        },
+        {
+            "result_id": 1353,
+            "result_type": "movie",
+            "clicks": 1
+        },
+        {
+            "result_id": 2013,
+            "result_type": "movie",
+            "clicks": 1
+        }
+    ],
+    "avg_click_position": 3.75,
+    "total_searches": 7,
+    "total_clicks": 4,
+    "ctr": 57.14285714285714
+}
